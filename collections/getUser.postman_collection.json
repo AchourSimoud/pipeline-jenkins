@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "ab35a576-5f48-4f0a-b929-bdc9f2f077cb",
+		"name": "get user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39706519"
+	},
+	"item": [
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
