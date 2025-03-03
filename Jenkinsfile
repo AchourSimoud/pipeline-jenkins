@@ -11,7 +11,7 @@ pipeline {
             }
             
             steps {
-                sh "newman run collections/collecion"
+                sh "newman run collections/getUser"
             }
         }
     }
