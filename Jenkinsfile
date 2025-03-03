@@ -1,18 +1,27 @@
-pipeline {
-    agent none
+pipeline{
+    agent {
+        docker {
+            image "postman/newman"
+            args "--entrypoint=''"
+        }
+        
+    }
 
-    stages {
-        stage('intaller newman') {
-            agent {
-                docker {
-                    image "postman/newman⁠"
-                    args "--entrypoint=''"
-                }   
+    stages{
+        stage('verifier la version de newman'){
+            steps{
+                sh 'newman --version'
             }
-            
-            steps {
-                sh "newman run collections/getUser.postman_collection.json"
+        }
+        stage('Test API'){
+            steps{
+                sh 'newman run collections/collection1.json -r cli,junit --reporter-junit-export="newman-report.xml"'
             }
+        }
+    }
+    post{
+        always {
+            junit 'newman-report.xml'
         }
     }
 }
