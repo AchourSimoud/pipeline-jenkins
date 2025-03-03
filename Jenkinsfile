@@ -26,7 +26,8 @@ pipeline{
     }
     post{
         always {
-            junit 'newman-report.xml'
+            echo 'Archivage des rapports...'
+            archiveArtifacts artifacts: 'reports/api-test-report.html', fingerprint: true
         }
     }
 }
