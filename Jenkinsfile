@@ -13,9 +13,14 @@ pipeline{
                 sh 'newman --version'
             }
         }
+
+        stage('Install htmlextra'){
+            sh "npm install -g newman-reporter-htmlextra"
+        }
+
         stage('Test API'){
             steps{
-                sh 'newman run collections/getUser.postman_collection.json -r cli,junit --reporter-junit-export="newman-report.xml"'
+                sh 'newman run collections/getUser.postman_collection.json --reporters htmlextra --reporter-htmlextra-export reports/api-test-report.html'
             }
         }
     }
