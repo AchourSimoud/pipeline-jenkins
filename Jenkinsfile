@@ -2,15 +2,15 @@ pipeline{
     agent {
         docker {
             image "postman/newman"
-            args "--entrypoint=''"
+            args "--entrypoint='' --user root"
         }
         
     }
 
     stages{
-        stage('verifier la version de newman'){
+        stage('installer npm'){
             steps{
-                sh 'newman --version'
+                sh "apk add --no-cache nodejs npm" 
             }
         }
 
