@@ -8,9 +8,9 @@ pipeline{
     }
 
     stages{
-        stage('installer npm'){
+        stage('verifier la version de newman'){
             steps{
-                sh "apk add --no-cache nodejs npm" 
+                sh 'newman --version'
             }
         }
 
