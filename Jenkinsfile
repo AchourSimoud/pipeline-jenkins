@@ -15,7 +15,7 @@ pipeline{
         }
 
         stage('Install htmlextra'){
-            sh "npm install -g newman-reporter-htmlextra"
+            sh "npm install newman-reporter-htmlextra"
         }
 
         stage('Test API'){
