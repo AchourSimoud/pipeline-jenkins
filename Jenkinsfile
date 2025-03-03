@@ -4,8 +4,10 @@ pipeline {
     stages {
         stage('intaller newman') {
             agent {
-                docker "postman/newman⁠"
-                
+                docker {
+                    image "postman/newman⁠"
+                    args "--entrypoint=''"
+                }   
             }
             
             steps {
