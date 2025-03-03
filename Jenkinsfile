@@ -11,7 +11,7 @@ pipeline {
             }
             
             steps {
-                sh "newman run collections/getUser"
+                sh "newman run collections/getUser.postman_collection.json"
             }
         }
     }
